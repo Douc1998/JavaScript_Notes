@@ -57,7 +57,7 @@ obj3 = {id: 2, name: 'lanxin'};
 let result = Object.assign(obj1, obj2, obj3);
 console.log(result); // { age: 23, id: 2, name: 'lanxin', sex: 'boy' }
 ```
-Object.assign()函数的实质是：将其他对象的属性添加到源对象中。源对象的值会改变，如：
+Object.assign()函数的实质是：即将其他对象的属性添加到源对象中。源对象的值会改变，如：
 ```JavaScript
 let obj1, obj2, obj3;
 obj1 = {age: 23};
@@ -111,7 +111,7 @@ let personCopy = {};
 } = person);
 console.log(personCopy); // { name: 'douchen', age: 23, hobbies: { Computer: 'games', Sports: 'basketball' }}
 
-// 赋值的hobbies是一个对象，因此是将该对象的引用赋值给personCopy,当person中的hobbis对象修改时，personCopy中的值也会修改。
+// 浅拷贝：赋值的hobbies是一个对象，因此是将该对象的引用赋值给personCopy,当person中的hobbis对象修改时，personCopy中的值也会修改。
 person.hobbies.Sports = 'football';
 console.log(person); // { name: 'douchen', age: 23, hobbies: { Computer: 'games', Sports: 'football' }}
 console.log(personCopy); // { name: 'douchen', age: 23, hobbies: { Computer: 'games', Sports: 'football' }}
