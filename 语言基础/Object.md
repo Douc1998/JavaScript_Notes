@@ -1,4 +1,4 @@
-# 对象Object
+# 对象 Object
 ## 创建object对象的简单方式
 (1)静态方法：
 ```JavaScript
