@@ -1,9 +1,3 @@
-const iter = {
-    * [Symbol.iterator](){
-        yield 1;
-        yield 2;
-        yield 3;
-    }
-};
-
-console.log(Array.from(iter));
+const arr = [1, 2, 3];
+const arrNew = Array.from(arr, x => x**2);
+console.log(arrNew);
