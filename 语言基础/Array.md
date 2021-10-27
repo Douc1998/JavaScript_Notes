@@ -52,4 +52,24 @@ from() 用于将`类数组结构`转为数组实例，of() 用于将`一组参�
 >> ```
 
 > **Array.of()**
->> Array.of()的参数
+>> Array.of()的参数是一系列将组成数组的元素。
+>> ```JavaScript
+>> let arr = Array.of(1, 2, 3);
+>> console.log(arr); // [ 1, 2, 3]
+>> console.log(arr.length); // 3
+>> ```
+
+## 数组迭代
+数组迭代可用简单的循环迭代，如**for**, **while**循环等，也可以用.forEach()。
+### 循环迭代
+以for循环为例，如：
+```JavaScript
+let arr = [1, 2, 3];
+for (let i = 0; i < arr.length; i++){
+    console.log(i); // 1, 2, 3
+}
+
+// 或者使用ES6中的for of
+for(let value of arr){
+    console.log(value);
+}
