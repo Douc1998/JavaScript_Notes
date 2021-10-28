@@ -106,7 +106,7 @@ console.log(arr); // [0, 5, 5, 0]
 ```
 类似于copyWithin()，fill()也会**忽略**超出数组边界、零长度和方向相反的索引范围。
 ## 数组转换字符串
-**toString()和join()**可以将数组元素拼接为字符串。
+__toString()__和__join()__可以将数组元素拼接为字符串。
 ### toString()
 toString()可以将数组元素拼接为用逗号(,)连接的字符串。如：
 ```JavaScript
@@ -122,7 +122,7 @@ console.log(arr.join('&&')); // douchen&&lanxin
 ```
 ## 栈方法
 栈Stack是一种"先进后出"的数据结构。数据项的添加(称为推入，**push**)和删除(称为弹出，**pop**)。  
-ES为数组提供了**push()和pop()**方法，以实现类似栈的行为。
+ES为数组提供了__push()__和__pop()__方法，以实现类似栈的行为。
 ### push()
 push()接收任意数量的参数，并将它们**添加到数组末尾**，返回数组的最新长度。如：
 ```JavaScript
@@ -141,7 +141,7 @@ console.log(names); // ['douchen']
 ```
 ## 队列方法
 队列Queue是一种"先进先出"的数据结构。队列在列表末尾添加数据，在列表开头删除数据。
-ES为数组提供了**push()、shift()**方法，以实现类似队列的行为。
+ES为数组提供了__push()__、__shift()__方法，以实现类似队列的行为。
 ### push()
 类似于栈的push方法，↑↑↑
 ### shift()
@@ -160,7 +160,7 @@ names.unshift('lilanxin', 'peter');
 console.log(names); // ['lilanxin', 'peter', 'douchen']
 ```
 ## 排序方法
-ES为数组提供了两种排序对数组元素进行重新排序：**reserve()和sort()**。  
+ES为数组提供了两种排序对数组元素进行重新排序：**reserve()**和**sort()**。  
 其中，reserve()只是简单地**将数组元素逆序排序**，sort()会**按照升序重新排列**数组元素。
 ### reserve()
 reserve()没什么可以介绍的，就是让数组换个方向。[1, 2, 3]变为[3, 2, 1]。
@@ -273,7 +273,7 @@ ES提供了两类的搜索方法，即**按严格相等搜索**和**按断言函
 >> 与find()相似，不过返回的是第一个匹配的元素的索引。
 
 ## 数组迭代
-ES为数组提供了5种迭代方法（不包含for\while等循环迭代），分别是**every()、some()、forEach()、map()和filter()**。
+ES为数组提供了5种迭代方法（不包含for\while等循环迭代），分别是__every()__、__some()__、__forEach()__、__map()__和__filter()__。
 ### every()
 every()会对数组每一项都计算传入的函数，如果**每一项函数都返回true**，则返回true。参考&&。如：
 ```JavaScript
