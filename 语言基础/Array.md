@@ -12,7 +12,7 @@ let colors = new Array('red', 'blue', 'green'); // 初始化数组
 ES6新增了两种用于创建数组的静态方法：**from()** 和 **of()**。  
 from() 用于将`类数组结构`转为数组实例，of() 用于将`一组参数`转换为数组实例。  
 > **Array.from()**
->> Array.from()的第一个参数是一个类数组对象，即任何***可迭代***的结构，或者有一个***length属性***和***可索引元素***的结构。
+>> Array.from()的第一个参数是一个类数组对象，即任何**可迭代**的结构，或者有一个**length属性**和**可索引元素**的结构。
 >> ```JavaScript
 >> // 字符串会被产分为单字符数组
 >> console.log(Array.from('douchen')); // ['d', 'o', 'u', 'c', 'h', 'e', 'n']
@@ -90,21 +90,21 @@ for(let [idx, element] of arrEntries){
 ## 复制和填充方法
 ES6新增了两个复制和填充的方法：批量复制方法**copyWithin()**, 以及填充数组方法**fill()**。  
 ### copyWithin()
-copyWithin()会按照指定范围***浅复制***数组中的部分内容，然后将它们插入到指定位置。其参数设置为.copyWithin(loc, start, end)，如：
+copyWithin()会按照指定范围**浅复制**数组中的部分内容，然后将它们插入到指定位置。其参数设置为**copyWithin(loc, start, end)**，如：
 ```JavaScript
 let arr = [0, 1, 2, 3];
 arr.copyWithin(0, 1, 3); // 复制索引1开始到索引3（不包括）结束的内容，插入到索引1开始的位置
 console.log(arr); // [1, 2, 2, 3], 覆盖了0和1
 ```
-copyWithin()会***忽略***超出数组边界、零长度和方向相反的索引范围。
+copyWithin()会**忽略**超出数组边界、零长度和方向相反的索引范围。
 ### fill()
-fill()可以向数组中指定位置插入相同的值。其参数设置为.fill(value, start, end)，如：
+fill()可以向数组中指定位置插入相同的值。其参数设置为**fill(value, start, end)**，如：
 ```JavaScript
 let arr = [0, 0, 0, 0];
 arr.fill(5, 1, 3); // 用数值5替换索引1到索引3（不包括）位置的值
 console.log(arr); // [0, 5, 5, 0]
 ```
-类似于copyWithin()，fill()也会***忽略***超出数组边界、零长度和方向相反的索引范围。
+类似于copyWithin()，fill()也会**忽略**超出数组边界、零长度和方向相反的索引范围。
 ## 数组转换字符串
 **toString()**和**join()**可以将数组元素拼接为字符串。
 ### toString()
@@ -115,7 +115,7 @@ console.log(arr.toString()); // douchen,lanxin
 ```
 如果不想要用逗号，想要用其他的分隔符连接呢？那么可以使用join()。
 ### join()
-join()方法接收一个参数，即***字符串分隔符***，返回包含所有元素且用字符串分隔符连接的字符串。如：
+join()方法接收一个参数，即**字符串分隔符**，返回包含所有元素且用字符串分隔符连接的字符串。如：
 ```JavaScript
 let arr = ['douchen', 'lanxin'];
 console.log(arr.join('&&')); // douchen&&lanxin
@@ -124,7 +124,7 @@ console.log(arr.join('&&')); // douchen&&lanxin
 栈Stack是一种"先进后出"的数据结构。数据项的添加(称为推入，**push**)和删除(称为弹出，**pop**)。  
 ES为数组提供了**push()**和**pop()**方法，以实现类似栈的行为。
 ### push()
-push()接收任意数量的参数，并将它们***添加到数组末尾***，返回数组的最新长度。如：
+push()接收任意数量的参数，并将它们**添加到数组末尾**，返回数组的最新长度。如：
 ```JavaScript
 let names = new Array();
 let count = names.push('douchen', 'lilanxin');
@@ -132,7 +132,7 @@ console.log(count); // 2
 console.log(names); // ['douchen', 'lilanxin']
 ```
 ### pop()
-pop()不接收任何参数，只用于***取出数组的最后一项***，返回数组的最新长度。如：
+pop()不接收任何参数，只用于**取出数组的最后一项**，返回数组的最新长度。如：
 ```JavaScript
 let names = ['douchen', 'lilanxin'];
 let count = names.pop()
@@ -145,7 +145,7 @@ ES为数组提供了**push()**、**shift()**方法，以实现类似队列的行
 ### push()
 类似于栈的push方法，↑↑↑
 ### shift()
-shift()和栈的pop()相反，它将会***取出数组的第一项***。返回数组的最新长度。如：
+shift()和栈的pop()相反，它将会**取出数组的第一项**。返回数组的最新长度。如：
 ```JavaScript
 let names = ['douchen', 'lilanxin'];
 let count = names.shift();
@@ -161,19 +161,19 @@ console.log(names); // ['lilanxin', 'peter', 'douchen']
 ```
 ## 排序方法
 ES为数组提供了两种排序对数组元素进行重新排序：**reserve()**和**sort()**。  
-其中，reserve()只是简单地***将数组元素逆序排序***，sort()会***按照升序重新排列***数组元素。
+其中，reserve()只是简单地**将数组元素逆序排序**，sort()会**按照升序重新排列**数组元素。
 ### reserve()
 reserve()没什么可以介绍的，就是让数组换个方向。[1, 2, 3]变为[3, 2, 1]。
 ### sort()
 sort()是一个让人又爱又恨的方法。它比reserve()有用得多，但是它又不能满足我们对数值的排序。  
-为什么呢？因为sort()在排序中会先***将数值转为字符串***，然后比较字符串决定顺序。如：
+为什么呢？因为sort()在排序中会先**将数值转为字符串**，然后比较字符串决定顺序。如：
 ```JavaScript
 let arr = [2, 1, 22, 11, 3, 4];
 arr.sort();
 console.log(arr); // [ 1, 11, 2, 22, 3, 4 ]
 ```
-显然，在字符串中，'1'和'11'都是1开头，排在2前面，所以***11和22顺序就不对***了。那该怎么办呢？  
-ES还算人性化，给sort()可以接收一个***比较函数***，用于判断哪个值应该排在前面。  
+显然，在字符串中，'1'和'11'都是1开头，排在2前面，所以**11和22顺序就不对**了。那该怎么办呢？  
+ES还算人性化，给sort()可以接收一个**比较函数**，用于判断哪个值应该排在前面。  
 比较函数接收两个参数a和b，如果a应该排在b前面，就返回负值，反之返回正值，如果相同则返回0。如：
 ```JavaScript
 // ES6的箭头函数+条件表达式，相当方便
@@ -193,7 +193,7 @@ arr.sort(function(a, b){
 对于数组，我们常常会有一些操作，如合并数组、数组切片和在数组中插入、删除、替换元素等。  
 下面将介绍数组的concat()、slice()和splice()方法。
 ### concat()
-concat()顾名思义，是创建一个新数组，其值是一些数组***合并后的结果***。注意！！！***该方法不会对原数组进行修改***。如：
+concat()顾名思义，是创建一个新数组，其值是一些数组**合并后的结果**。注意！！！**该方法不会对原数组进行修改**。如：
 ```JavaScript
 let [person1, person2, person3] = [['douchen'], ['lilanxin'], ['peter']];
 let persons = person1.concat(person2, person3, 'lucy');
@@ -201,17 +201,17 @@ console.log(person1); // [ 'douchen' ]
 console.log(persons); // [ 'douchen', 'lilanxin', 'peter', 'lucy' ]
 ```
 ### slice()
-slice()用于创建一个包含原数组中一个或多个元素的新数组，即将***原数组切片***，得到一个新数组，其参数设置为**slice(start, end)**。如：
+slice()用于创建一个包含原数组中一个或多个元素的新数组，即将**原数组切片**，得到一个新数组，其参数设置为**slice(start, end)**。如：
 ```JavaScript
 let nums = [1, 2, 3, 4, 5];
 let newNums = nums.slice(1, 3);
 console.log(newNums); // [ 2, 3 ]
 ```
 ### splice()
-splice()可以说是数组中最强大的操作方法了，它可以实现在数组***指定位置插入、删除和替换***元素。  
-其参数设置为**splice(loc, deleteNum, value)**，返回删除的元素。通过***对参数的不同设置，实现不同的功能***。如：
+splice()可以说是数组中最强大的操作方法了，它可以实现在数组**指定位置插入、删除和替换**元素。  
+其参数设置为**splice(loc, deleteNum, value)**，返回删除的元素。通过**对参数的不同设置，实现不同的功能**。如：
 > **插入**
->> 需要给splice()传**3**个参数：**插入位置**、**0(要删除的元素数量)**、**要插入的元素**。
+>> 需要给splice()传***3***个参数：***插入位置***、***0(要删除的元素数量)***、***要插入的元素***。
 >> ```JavaScript
 >> let names = ['douchen', 'lilanxin', 'peter'];
 >> console.log(names.splice(1, 0, 'lucy')); // [], 空数组，因为没有被删除的元素
@@ -219,7 +219,7 @@ splice()可以说是数组中最强大的操作方法了，它可以实现在数
 >> ```
 
 > **删除**
->> 需要给splice()传**2**个参数：***开始删除的位置***、***deletNum(要删除的元素数量)***。
+>> 需要给splice()传***2***个参数：***开始删除的位置***、***deletNum(要删除的元素数量)***。
 >> ```JavaScript
 >> let names = ['douchen', 'lilanxin', 'peter', 'lucy'];
 >> console.log(names.splice(2, 2)); // [ 'peter', 'lucy' ] 
@@ -227,7 +227,7 @@ splice()可以说是数组中最强大的操作方法了，它可以实现在数
 >> ```
 
 > **替换**
->> 需要给splice()传**3**个参数：***开始的位置***、***要删除的元素数量***、***要插入的任意多个元素***。
+>> 需要给splice()传***3***个参数：***开始的位置***、***要删除的元素数量***、***要插入的任意多个元素***。
 >> ```JavaScript
 >> let names = ['douchen', 'lilanxin', 'peter', 'lucy'];
 >> console.log(names.splice(2, 1, 'jack', 'tom')); // 删除了一个元素[ 'peter' ]，插入两个元素 
@@ -235,12 +235,12 @@ splice()可以说是数组中最强大的操作方法了，它可以实现在数
 >> ```
 
 ## 搜索方法
-ES提供了两类的搜索方法，即***按严格相等搜索***和***按断言函数搜索***。
+ES提供了两类的搜索方法，即**按严格相等搜索**和**按断言函数搜索**。
 ### 按严格相等
-按严格相等搜索包括三个方法：**indexOf**、**lastIndexOf**和**includes()**。
+按严格相等搜索包括三个方法：**indexOf()**、**lastIndexOf()**和**includes()**。
 > **indexOf**
 >> indexOf()从数组***开头***进行搜索，返回搜索值在数组中的***第一个索引***的位置。  
->> 接收两个参数：**value**, **start**，没有start参数则默认从头开始。如：
+>> 接收两个参数：***value***, ***start***，没有start参数则默认从头开始。如：
 >> ```JavaScript
 >> let nums = [1, 2, 3, 4, 1, 2, 3, 4];
 >> console.log(names.indexOf(1, 0)); // 从第一个位置开始搜索1，返回位置为0 
@@ -252,7 +252,7 @@ ES提供了两类的搜索方法，即***按严格相等搜索***和***按断言
 
 > **includes**
 >> ES7新增了includes()方法，用于判断从搜索位置开始，数组中是否包含某个元素，返回bool值。
->> 接收两个参数：**value**, **start**，没有start参数则默认从头开始。如：
+>> 接收两个参数：***value***, ***start***，没有start参数则默认从头开始。如：
 >> ```JavaScript
 >> let nums = [1, 2, 3, 4];
 >> console.log(nums.indexOf(1, 0)); // 从第一个位置开始搜索1，返回true 
@@ -275,14 +275,14 @@ ES提供了两类的搜索方法，即***按严格相等搜索***和***按断言
 ## 数组迭代
 ES为数组提供了5种迭代方法（不包含for\while等循环迭代），分别是**every()**、**some()**、**forEach()**、**map()**和**filter()**。
 ### every()
-every()会对数组每一项都计算传入的函数，如果***每一项函数都返回true***，则返回true。参考&&。如：
+every()会对数组每一项都计算传入的函数，如果**每一项函数都返回true**，则返回true。参考&&。如：
 ```JavaScript
 let nums = [1, 2, 3, 4];
 console.log(nums.every((element, index, arr) => element > 0)); // true
 console.log(nums.every((element, index, arr) => element > 1)); // false
 ```
 ### some()
-some()与every()不同，只要***有一项函数都返回true***，则返回true。参考||。
+some()与every()不同，只要**有一项函数都返回true**，则返回true。参考||。
 ### forEach()
 forEach()会对数组中的每一项都计算传入的函数，没有返回值，类似for循环。如：
 ```JavaScript
@@ -294,17 +294,17 @@ nums.forEach((element, index, arr) => {
 })
 ```
 ### map()
-map()是一个很常用的方法，它对每一项进行函数计算，***再由计算后的结果组成一个新数组***。如：
+map()是一个很常用的方法，它对每一项进行函数计算，**再由计算后的结果组成一个新数组**。如：
 ```JavaScript
 let nums = [1, 2, 3, 4];
 let newNums = nums.map((element, index, arr) => element**2); //d对每一项求平方
 console.log(newNums); // [ 1, 4, 9, 16 ]
 ```
 ### filter()
-filter()也是一个很常用的方法，与map()不同，它会***将函数返回true的项组成一个数组***。如：
+filter()也是一个很常用的方法，与map()不同，它会**将函数返回true的项组成一个数组**。如：
 ```JavaScript
 let nums = [1, 2, 3, 4];
 let newNums = nums.filter((element, index, arr) => element > 2); //d对每一项求平方
 console.log(newNums); // [ 3, 4 ]
 ```
-filter()和map()的区别在于，前者是***将符合要求的原始元素***组成新数组，***后者是将原始元素变换后***组成新数组。
+filter()和map()的区别在于，前者是**将符合要求的原始元素**组成新数组，**后者是将原始元素变换后**组成新数组。
