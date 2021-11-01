@@ -99,7 +99,3 @@ console.log(m2.keys()); // [Map Iterator] { { age: 100 } }
 ```
 ## ...
 后续更新，如weakMap等...
-
-
-
-
