@@ -1,75 +1,30 @@
-// 创建结点Node类
-class Node {
-    constructor(id) {
-        this.id = id;
-        this.neighbors = new Set();
-    }
-    // 结点双向连接
-    connect(node) {
-        if (node !== this) {
-            this.neighbors.add(node);
-            node.neighbors.add(this);
-        }
-    }
-}
-
-// 创建随机双向图类
-class graph {
-    constructor(size) {
-        this.nodes = new Set();
-        for (let i = 0; i < size; i++) {
-            this.nodes.add(new Node(i));
-        }
-        const threshold = 1 / size; // 概率阈值，是否连接
-        for (const x of this.nodes) {
-            for (const y of this.nodes) {
-                if (Math.random() < threshold) {
-                    x.connect(y);
+class iteratableObject{
+    constructor(countLimit){
+        this.countLimit = countLimit
+    };
+    [Symbol.iterator](){ // 利用Symbol.Iterator工程函数自定义迭代器
+        let count = 0;
+        let limit = this.countLimit;
+        return{
+            next(){ // 自定义next()函数
+                if(count <= limit){
+                    return {done: false, value: count++}
+                }else{
+                    return {done: true, value: undefined}
                 }
+            },
+            return(){ // 提前终止return()
+                console.log('stop early');
+                return {done: true}
             }
         }
     }
-    print() { // 输出随机图
-        for (const node of this.nodes) {
-            const ids = [...node.neighbors].map((node) => node.id).join(',');
-            console.log(node.id.toString() + ':' + ids);
-        }
-    }
-    isConnect(){ // 判断随机图是否连通，即每两个点都可达
-        const visitedNodes = new Set();
-        function* traverse(nodes){ // 使用递归生成器
-            for(const node of nodes){
-                if(!visitedNodes.has(node)){
-                    yield node; // 遇到yield，暂停函数并保存函数当前状态，可利用.next()或for of继续执行。
-                    yield* traverse(node.neighbors);
-                }
-            }
-        }
-        const firstNode = this.nodes[Symbol.iterator]().next().value;
-        for(const node of traverse([firstNode])){ 
-            // 继续开始执行traverse函数，并将node添加入visitedNodes
-            visitedNodes.add(node);
-        };
-        if(visitedNodes.size === this.nodes.size){
-            return true
-        }else{
-            console.log(visitedNodes)
-            return false
-        }
-    }
 }
 
-// const g = new graph(6);
-// g.print();
-// g.isConnect();
-
-function *nTimes(n){
-    if( n < 5 ){
-        yield n * (n + 1);
-        yield* nTimes(n + 1)
+const obj = new iteratableObject(5);
+for(const i of obj){
+    if(i > 4){
+        break
     }
+    console.log(i); // 0 1 2 3 4 (5不输出，输出'stop early')
 }
-for(const x of nTimes(0)){
-    console.log(x); // 
-}
-
