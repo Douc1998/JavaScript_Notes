@@ -255,8 +255,8 @@ ES提供了两类的搜索方法，即**按严格相等搜索**和**按断言函
 >> 接收两个参数：***value***, ***start***，没有start参数则默认从头开始。如：
 >> ```JavaScript
 >> let nums = [1, 2, 3, 4];
->> console.log(nums.indexOf(1, 0)); // 从第一个位置开始搜索1，返回true 
->> console.log(nums.indexOf(1, 1)); // 从第二个位置开始搜索1，返回false
+>> console.log(nums.includes(1, 0)); // 从第一个位置开始搜索1，返回true 
+>> console.log(nums.includes(1, 1)); // 从第二个位置开始搜索1，返回false
 >> ```
 
 ### 按断言函数
