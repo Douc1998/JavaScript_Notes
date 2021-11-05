@@ -1,5 +1,5 @@
 # 数组 Array
-## 创建数组
+## 1. 创建数组
 ### 基础方法
 直接创建数组，使用**new Array()** 或 **[]**。
 ```JavaScript
@@ -59,7 +59,7 @@ from() 用于将`类数组结构`转为数组实例，of() 用于将`一组参�
 >> console.log(arr.length); // 3
 >> ```
 
-## 迭代器方法
+## 2. 迭代器方法
 ES6中，Array上出现了3个用于检索数组内容的方法：**keys()**, **values()** 和 **entries()**。
 ### keys()
 keys()返回数组索引的迭代器。如：
@@ -87,7 +87,7 @@ for(let [idx, element] of arrEntries){
     console.log(element); //douchen lilanxin peter lucy
 }
 ```
-## 复制和填充方法
+## 3. 复制和填充方法
 ES6新增了两个复制和填充的方法：批量复制方法**copyWithin()**, 以及填充数组方法**fill()**。  
 ### copyWithin()
 copyWithin()会按照指定范围**浅复制**数组中的部分内容，然后将它们插入到指定位置。其参数设置为**copyWithin(loc, start, end)**，如：
@@ -105,7 +105,7 @@ arr.fill(5, 1, 3); // 用数值5替换索引1到索引3（不包括）位置的�
 console.log(arr); // [0, 5, 5, 0]
 ```
 类似于copyWithin()，fill()也会**忽略**超出数组边界、零长度和方向相反的索引范围。
-## 数组转换字符串
+## 4. 数组转换字符串
 **toString()** 和 **join()** 可以将数组元素拼接为字符串。
 ### toString()
 toString()可以将数组元素拼接为用逗号(,)连接的字符串。如：
@@ -120,7 +120,7 @@ join()方法接收一个参数，即**字符串分隔符**，返回包含所有�
 let arr = ['douchen', 'lanxin'];
 console.log(arr.join('&&')); // douchen&&lanxin
 ```
-## 栈方法
+## 5. 栈方法
 栈Stack是一种"先进后出"的数据结构。数据项的添加(称为推入，**push**)和删除(称为弹出，**pop**)。  
 ES为数组提供了 **push()** 和 **pop()** 方法，以实现类似栈的行为。
 ### push()
@@ -139,7 +139,7 @@ let count = names.pop()
 console.log(count); // 1
 console.log(names); // ['douchen']
 ```
-## 队列方法
+## 6. 队列方法
 队列Queue是一种"先进先出"的数据结构。队列在列表末尾添加数据，在列表开头删除数据。
 ES为数组提供了 **push()** 和 **shift()** 方法，以实现类似队列的行为。
 ### push()
@@ -159,7 +159,7 @@ let names = ['douchen'];
 names.unshift('lilanxin', 'peter');
 console.log(names); // ['lilanxin', 'peter', 'douchen']
 ```
-## 排序方法
+## 7. 排序方法
 ES为数组提供了两种排序对数组元素进行重新排序：**reserve()** 和 **sort()**。  
 其中，reserve()只是简单地**将数组元素逆序排序**，sort()会**按照升序重新排列**数组元素。
 ### reserve()
@@ -189,7 +189,7 @@ arr.sort(function(a, b){
     }
 })
 ```
-## 数组操作
+## 8. 数组操作
 对于数组，我们常常会有一些操作，如合并数组、数组切片和在数组中插入、删除、替换元素等。  
 下面将介绍数组的concat()、slice()和splice()方法。
 ### concat()
@@ -234,7 +234,7 @@ splice()可以说是数组中最强大的操作方法了，它可以实现在数
 >> console.log(names); // [ 'douchen', 'lilanxin', 'jack', 'tom', 'lucy' ]
 >> ```
 
-## 搜索方法
+## 9. 搜索方法
 ES提供了两类的搜索方法，即**按严格相等搜索**和**按断言函数搜索**。
 ### 按严格相等
 按严格相等搜索包括三个方法：**indexOf()**、**lastIndexOf()** 和 **includes()**。
@@ -272,7 +272,7 @@ ES提供了两类的搜索方法，即**按严格相等搜索**和**按断言函
 > **findIndex()**
 >> 与find()相似，不过返回的是第一个匹配的元素的索引。
 
-## 数组迭代
+## 10. 数组迭代
 ES为数组提供了5种迭代方法（不包含for\while等循环迭代），分别是**every()**、**some()**、**forEach()**、**map()** 和 **filter()**。
 ### every()
 every()会对数组每一项都计算传入的函数，如果**每一项函数都返回true**，则返回true。参考&&。如：

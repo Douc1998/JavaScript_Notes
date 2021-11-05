@@ -3,7 +3,7 @@
 ES6新增了 **Map** 数据结构，Map是一种新的集合数据类型。  
 Object只能用 **数值** 、 **字符串** 或 **符号** 作为键，而Map可以使用 **任何JavaScript数据类型** 作为键。
 **注意！！！：Map中的键不可重复**
-## 基本功能
+## 1. 基本功能
 ### 创建Map
 创建Map和数组、对象等方式一样：使用 **new** 关键字和 **Map()** 构造函数即可。如：
 ```JavaScript
@@ -73,7 +73,7 @@ Map的迭代可以用 **for of** , **forEach()** 等。如：
 >> m.forEach((key, value) => console.log(key, '->', value)); // user1 -> douchen  user2 -> lilanxin
 >> ```
 
-## 小Tips
+## 2. 小Tips
 Map中的 **键** 是 **不可修改** 的，如String、Number等基础类型；但是以 **Object** 作为键时，是 **引用** ，可以 **修改** Object内部的 **属性** 。如：
 ```JavaScript
 // 作为键的字符串原始值是不可修改的

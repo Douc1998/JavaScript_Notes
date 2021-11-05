@@ -1,5 +1,5 @@
 # 对象 Object
-## 创建object对象的简单方式
+## 1. 创建object对象的简单方式
 (1)静态方法：
 ```JavaScript
 let person = new Object({name: 'douchen', age: 23});
@@ -17,7 +17,7 @@ function Person(name, age){
 let person = new Person('douchen', 23);
 ```
 
-## 添加object对象的属性和方法
+## 2. 添加object对象的属性和方法
 ```JavaScript
 let person = new Object();
 person['name'] = 'douchen'; // 定义属性方法一
@@ -47,7 +47,7 @@ Object.defineProperty(person, {
 })
 ```
 
-## Object对象合并
+## 3. Object对象合并
 合并多个Object对象时，ES6提供了Object.assign()函数。assign()函数能合并对象中的不同属性，但对相同属性会覆盖。如
 ```JavaScript
 let obj1, obj2, obj3;
@@ -70,7 +70,7 @@ console.log(obj1); // { age: 23, id: 2, name: 'lanxin', sex: 'boy' }
 console.log(obj2); // { id: 1, name: 'douchen', sex: 'boy' }
 ```
 
-## 对象解构（ES6）
+## 4. 对象解构（ES6）
 ES6中新增了对象的解构语法。
 ```JavaScript
 let person = {
@@ -117,7 +117,7 @@ console.log(person); // { name: 'douchen', age: 23, hobbies: { Computer: 'games'
 console.log(personCopy); // { name: 'douchen', age: 23, hobbies: { Computer: 'games', Sports: 'football' }}
 ```
 
-## 对象迭代
+## 5. 对象迭代
 对象的迭代包括三种：键迭代、值迭代、键值对迭代。  
 分别对应了Object.keys(), Object.values(), Object.entries(), 返回均为数组形式。
 ```JavaScript
