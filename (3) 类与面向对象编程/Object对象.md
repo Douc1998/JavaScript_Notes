@@ -53,20 +53,20 @@ Object.defineProperty(person, {
 let obj1, obj2, obj3;
 obj1 = {age: 23};
 obj2 = {id: 1, name: 'douchen', sex: 'boy'};
-obj3 = {id: 2, name: 'lanxin'};
+obj3 = {id: 2, name: 'aoteman'};
 let result = Object.assign(obj1, obj2, obj3);
-console.log(result); // { age: 23, id: 2, name: 'lanxin', sex: 'boy' }
+console.log(result); // { age: 23, id: 2, name: 'aoteman', sex: 'boy' }
 ```
 Object.assign()函数的实质是：即将其他对象的属性添加到源对象中。源对象的值会改变，如：
 ```JavaScript
 let obj1, obj2, obj3;
 obj1 = {age: 23};
 obj2 = {id: 1, name: 'douchen', sex: 'boy'};
-obj3 = {id: 2, name: 'lanxin'};
+obj3 = {id: 2, name: 'aoteman'};
 let reuslt = Object.assign(obj1, obj2, obj3);
 console.log(obj1 === result); // true
 console.log(obj2 === result); // false
-console.log(obj1); // { age: 23, id: 2, name: 'lanxin', sex: 'boy' }
+console.log(obj1); // { age: 23, id: 2, name: 'aoteman', sex: 'boy' }
 console.log(obj2); // { id: 1, name: 'douchen', sex: 'boy' }
 ```
 
@@ -135,7 +135,7 @@ console.log(Object.entries(person)); // [ [ 'name', 'douchen' ], [ 'age', 23 ], 
 ```
 
 ## ...
-后续内容有待更新...
+...
 
 
 
