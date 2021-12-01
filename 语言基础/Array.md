@@ -64,7 +64,7 @@ ES6中，Array上出现了3个用于检索数组内容的方法：**keys()**, **
 ### keys()
 keys()返回数组索引的迭代器。如：
 ```JavaScript
-const arr = ['douchen', 'lilanxin', 'peter', 'lucy'];
+const arr = ['douchen', 'aoteman', 'peter', 'lucy'];
 const arrKeys = Array.from(arr.keys());
 console.log(arrKeys); // [0, 1, 2, 3]
 ```
@@ -72,19 +72,19 @@ console.log(arrKeys); // [0, 1, 2, 3]
 values()返回数组元素的迭代器。如：
 ```JavaScript
 const arrValues = Array.from(arr.values());
-console.log(arrValues); // ['douchen', 'lilanxin', 'peter', 'lucy']
+console.log(arrValues); // ['douchen', 'aoteman', 'peter', 'lucy']
 ```
 ### entries()
 entries()返回索引和元素值对的迭代器。如：
 ```JavaScript
 const arrEntries = Array.from(arr.entries());
-console.log(arrEntries); // [[0, 'douchen'], [1, 'lilanxin'], [2, 'peter'], [3, 'lucy']]
+console.log(arrEntries); // [[0, 'douchen'], [1, 'aoteman'], [2, 'peter'], [3, 'lucy']]
 ```
 使用ES6中的解构可以非常容易地在循环中拆分键值对：
 ```JavaScript
 for(let [idx, element] of arrEntries){
     console.log(idx); // 0 1 2 3
-    console.log(element); //douchen lilanxin peter lucy
+    console.log(element); //douchen aoteman peter lucy
 }
 ```
 ## 3. 复制和填充方法
@@ -127,14 +127,14 @@ ES为数组提供了 **push()** 和 **pop()** 方法，以实现类似栈的行�
 push()接收任意数量的参数，并将它们**添加到数组末尾**，返回数组的最新长度。如：
 ```JavaScript
 let names = new Array();
-let count = names.push('douchen', 'lilanxin');
+let count = names.push('douchen', 'aoteman');
 console.log(count); // 2
-console.log(names); // ['douchen', 'lilanxin']
+console.log(names); // ['douchen', 'aoteman']
 ```
 ### pop()
 pop()不接收任何参数，只用于**取出数组的最后一项**，返回数组的最新长度。如：
 ```JavaScript
-let names = ['douchen', 'lilanxin'];
+let names = ['douchen', 'aoteman'];
 let count = names.pop()
 console.log(count); // 1
 console.log(names); // ['douchen']
@@ -147,17 +147,17 @@ ES为数组提供了 **push()** 和 **shift()** 方法，以实现类似队列�
 ### shift()
 shift()和栈的pop()相反，它将会**取出数组的第一项**。返回数组的最新长度。如：
 ```JavaScript
-let names = ['douchen', 'lilanxin'];
+let names = ['douchen', 'aoteman'];
 let count = names.shift();
 console.log(count); // 1
-console.log(names); // ['lilanxin']
+console.log(names); // ['aoteman']
 ```
 ### unshift()
 ES也为数组提供了unshift()方法，和shift()相反，以实现在数组的开头添加任意个数。如：
 ```JavaScript
 let names = ['douchen'];
-names.unshift('lilanxin', 'peter');
-console.log(names); // ['lilanxin', 'peter', 'douchen']
+names.unshift('aoteman', 'peter');
+console.log(names); // ['aoteman', 'peter', 'douchen']
 ```
 ## 7. 排序方法
 ES为数组提供了两种排序对数组元素进行重新排序：**reserve()** 和 **sort()**。  
@@ -195,10 +195,10 @@ arr.sort(function(a, b){
 ### concat()
 concat()顾名思义，是创建一个新数组，其值是一些数组**合并后的结果**。注意！！！**该方法不会对原数组进行修改**。如：
 ```JavaScript
-let [person1, person2, person3] = [['douchen'], ['lilanxin'], ['peter']];
+let [person1, person2, person3] = [['douchen'], ['aoteman'], ['peter']];
 let persons = person1.concat(person2, person3, 'lucy');
 console.log(person1); // [ 'douchen' ]
-console.log(persons); // [ 'douchen', 'lilanxin', 'peter', 'lucy' ]
+console.log(persons); // [ 'douchen', 'aoteman', 'peter', 'lucy' ]
 ```
 ### slice()
 slice()用于创建一个包含原数组中一个或多个元素的新数组，即将**原数组切片**，得到一个新数组，其参数设置为**slice(start, end)**。如：
@@ -213,25 +213,25 @@ splice()可以说是数组中最强大的操作方法了，它可以实现在数
 > **插入**
 >> 需要给splice()传***3***个参数：***插入位置***、***0(要删除的元素数量)***、***要插入的元素***。
 >> ```JavaScript
->> let names = ['douchen', 'lilanxin', 'peter'];
+>> let names = ['douchen', 'aoteman', 'peter'];
 >> console.log(names.splice(1, 0, 'lucy')); // [], 空数组，因为没有被删除的元素
->> console.log(names); // [ 'douchen', 'lucy', 'lilanxin', 'peter' ]
+>> console.log(names); // [ 'douchen', 'lucy', 'aoteman', 'peter' ]
 >> ```
 
 > **删除**
 >> 需要给splice()传***2***个参数：***开始删除的位置***、***deletNum(要删除的元素数量)***。
 >> ```JavaScript
->> let names = ['douchen', 'lilanxin', 'peter', 'lucy'];
+>> let names = ['douchen', 'aoteman', 'peter', 'lucy'];
 >> console.log(names.splice(2, 2)); // [ 'peter', 'lucy' ] 
->> console.log(names); // [ 'douchen', 'lilanxin' ]
+>> console.log(names); // [ 'douchen', 'aoteman' ]
 >> ```
 
 > **替换**
 >> 需要给splice()传***3***个参数：***开始的位置***、***要删除的元素数量***、***要插入的任意多个元素***。
 >> ```JavaScript
->> let names = ['douchen', 'lilanxin', 'peter', 'lucy'];
+>> let names = ['douchen', 'aoteman', 'peter', 'lucy'];
 >> console.log(names.splice(2, 1, 'jack', 'tom')); // 删除了一个元素[ 'peter' ]，插入两个元素 
->> console.log(names); // [ 'douchen', 'lilanxin', 'jack', 'tom', 'lucy' ]
+>> console.log(names); // [ 'douchen', 'aoteman', 'jack', 'tom', 'lucy' ]
 >> ```
 
 ## 9. 搜索方法

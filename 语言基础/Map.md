@@ -10,15 +10,15 @@ Object只能用 **数值** 、 **字符串** 或 **符号** 作为键，而Map�
 // 创建空映射
 const map1 = new Map(); // Map(0) {}
 // 使用嵌套数组初始化
-const map2 = new Map([  // Map(2) { 'user1' => 'douchen', 'user2' => 'lilanxin' }
+const map2 = new Map([  // Map(2) { 'user1' => 'douchen', 'user2' => 'aoteman' }
     ['user1', 'douchen'],
-    ['user2', 'lilanxin']
+    ['user2', 'aoteman']
 ]);
 // 使用自定义迭代器初始化
-const map3 = new Map({  // Map(2) { 'user1' => 'douchen', 'user2' => 'lilanxin' }
+const map3 = new Map({  // Map(2) { 'user1' => 'douchen', 'user2' => 'aoteman' }
     [Symbol.iterator]: function*(){
         yield ['user1', 'douchen'],
-        yield ['user2', 'lilanxin']
+        yield ['user2', 'aoteman']
     }
 });
 ```
@@ -50,12 +50,12 @@ Map的取值的方式也有很多，如：**Iterator迭代器** , **entries()** 
 ```JavaScript
 const m = new Map([
     ['user1', 'douchen'],
-    ['user2', 'lilanxin']
+    ['user2', 'aoteman']
 ]);
-console.log(m[Symbol.iterator]()); // [Map Entries] { [ 'user1', 'douchen' ], [ 'user2', 'lilanxin' ] }
-console.log(m.entries()); // [Map Entries] { [ 'user1', 'douchen' ], [ 'user2', 'lilanxin' ] }
+console.log(m[Symbol.iterator]()); // [Map Entries] { [ 'user1', 'douchen' ], [ 'user2', 'aoteman' ] }
+console.log(m.entries()); // [Map Entries] { [ 'user1', 'douchen' ], [ 'user2', 'aoteman' ] }
 console.log(m.keys());    // [Map Iterator] { 'user1', 'user2' }
-console.log(m.values());  // [Map Iterator] { 'douchen', 'lilanxin' }
+console.log(m.values());  // [Map Iterator] { 'douchen', 'aoteman' }
 ```
 ### 迭代
 Map的迭代可以用 **for of** , **forEach()** 等。如：
@@ -63,14 +63,14 @@ Map的迭代可以用 **for of** , **forEach()** 等。如：
 >> for of中可以用 ***pair*** 或 ***[key, value]*** 来指示迭代变量。如：
 >> ```JavaScript
 >> for (let [key, value] of m.entries()){
->>     console.log(key, '->', value); // user1 -> douchen  user2 -> lilanxin
+>>     console.log(key, '->', value); // user1 -> douchen  user2 -> aoteman
 >> }
 >> ```
 
 > **forEach()**
 >> forEacn()方法与迭代数组的方法类似，但其内部可以直接调用函数。如：
 >> ```JavaScript
->> m.forEach((key, value) => console.log(key, '->', value)); // user1 -> douchen  user2 -> lilanxin
+>> m.forEach((key, value) => console.log(key, '->', value)); // user1 -> douchen  user2 -> aoteman
 >> ```
 
 ## 2. 小Tips
