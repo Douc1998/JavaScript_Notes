@@ -16,6 +16,7 @@ console.log(descriptorSchool);
 
 let descriptor = Object.getOwnPropertyDescriptors(person1);
 console.log(descriptor);
+console.log('Mac test');
 /**
 {
   name: {
