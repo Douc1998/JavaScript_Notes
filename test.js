@@ -1,12 +1,14 @@
-Reflect.has({x: 0}, "x"); // true
-Reflect.has({x: 0}, "y"); // false
+// 基于函数名定义函数
+function sum(a, b) {
+  return a + b
+}
+console.log(sum(10, 11)); // 21
 
-// 如果该属性存在于原型链中，返回true
-Reflect.has({x: 0}, "toString");
+// 声明 另一个函数声明
+let anotherSum = sum;
+console.log(anotherSum(10, 11)); // 21
 
-// Proxy 对象的 .has() 句柄方法
-obj = new Proxy({}, {
-  has(t, k) { return k.startsWith("door"); }
-});
-Reflect.has(obj, "doorbell"); // true
-Reflect.has(obj, "dormitory"); // false
+// 切断sum和函数指针的联系，但不影响anotherSum声明，因为函数指针没有改变
+sum = null;
+console.log(anotherSum(10, 11));
+
