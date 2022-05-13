@@ -1,43 +1,19 @@
-const a = new Set([1, 2, 3])
-const b = new Set([2, 4, 5])
+let Person = function(){} // 构造函数
 
-// 可求多个集合的并集
-function union(a, ...bSets) {
-  const unionSet = new Set(a);
-  for (let b of bSets) {
-    for (let bValue of b) {
-      unionSet.add(bValue);
-    }
-  }
-  return unionSet;
+// 原型对象
+Person.prototype.name = 'douchen';
+Person.prototype.age = 23;
+Person.prototype.sayHello = function(){
+  console.log('Hello! ' + this.name)
 }
 
-// 可求多个集合的交集
-function intersection(a, ...bSets) {
-  const intersectionSet = new Set(a);
-  for (let aValue of intersectionSet) {
-    for (let b of bSets) {
-      if (!b.has(aValue)) {
-        intersectionSet.delete(aValue)
-      }
-    }
-  }
-  return intersectionSet
-}
+// 实例对象
+let person1 = new Person();
+let person2 = new Person();
 
-// 求两个集合差集
-function difference(a, b) {
-  const differenceSet = new Set(a);
-  for (let bValue of b) {
-    if (!a.has(bValue)) {
-      differenceSet.delete(bValue)
-    }
-  }
-  return differenceSet;
-}
+person1.name = 'jack';
+person1.sayHello(); // Hello! jack
+person2.sayHello(); // Hello! douchen
 
-console.log(union(a, b))
-console.log(intersection(a, b))
-console.log(difference(a, b))
-
-console.log(Array.from(a))
+console.log(person1.sayHello === person2.sayHello) // true
+console.log(person1.name === person2.name)
