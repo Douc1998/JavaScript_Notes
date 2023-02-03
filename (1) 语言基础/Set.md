@@ -132,6 +132,3 @@ console.log(difference(a, b))  // Set(3) { 1, 2, 3 }
 ## 4. 集合与数组
 Set 转 Array，如：`Array.from(set)`。
 Array 转 Set，如： `new Set(array)`。
-
-## ...
-后续更新，如weakSet等...

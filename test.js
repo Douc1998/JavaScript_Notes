@@ -7,7 +7,7 @@ Person.prototype.sayHello = function(){
   console.log('Hello! ' + this.name)
 }
 
-// 实例对象
+// 实例对象，将分别继承原型对象的属性
 let person1 = new Person();
 let person2 = new Person();
 
@@ -16,4 +16,4 @@ person1.sayHello(); // Hello! jack
 person2.sayHello(); // Hello! douchen
 
 console.log(person1.sayHello === person2.sayHello) // true
-console.log(person1.name === person2.name)
+console.log(person1.name === person2.name) // false
