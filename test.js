@@ -1,19 +1,15 @@
-let Person = function(){} // 构造函数
-
-// 原型对象
-Person.prototype.name = 'douchen';
-Person.prototype.age = 23;
-Person.prototype.sayHello = function(){
-  console.log('Hello! ' + this.name)
+// 父类
+class Person{
+  static print(){ // 静态方法
+    console.log('I am father');
+  }
 }
 
-// 实例对象，将分别继承原型对象的属性
-let person1 = new Person();
-let person2 = new Person();
+// 派生类
+class Student extends Person{
+  static print(){
+    super.print(); // 在派生类静态方法中调用父类静态方法
+  }
+}
 
-person1.name = 'jack';
-person1.sayHello(); // Hello! jack
-person2.sayHello(); // Hello! douchen
-
-console.log(person1.sayHello === person2.sayHello) // true
-console.log(person1.name === person2.name) // false
+Student.print(); // I am father
