@@ -1,15 +1,9 @@
-// 父类
-class Person{
-  static print(){ // 静态方法
-    console.log('I am father');
-  }
+const a = {
+  name: 'dou',
+  age: 24
 }
 
-// 派生类
-class Student extends Person{
-  static print(){
-    super.print(); // 在派生类静态方法中调用父类静态方法
-  }
-}
+// 组织新属性添加到 a
+Reflect.preventExtensions(a);
 
-Student.print(); // I am father
+console.log(Reflect.isExtensible(a)); // false
