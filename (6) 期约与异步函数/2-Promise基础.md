@@ -70,7 +70,7 @@ let p1 = new Promise((resolve, reject) => resolve('success'));
 let p2 = Promise.resolve('success');
 ```
 
-对于 `Promise.resolve()` 而言，传入的参数无论是什么类型的值，**都会被转换为一个期约，这个期约的内部值为我们传入的参数值**。然而，**如果传入的参数本身就是一个 `Promise`，那 `Promise.resolve()` 的行为类似于一个空包装，返回传入的 `Promise` 自身**。因此，该方法是一个幂等方法。
+对于 `Promise.resolve()` 而言，传入的参数无论是什么类型的值，**都会被转换为一个期约，这个期约的内部值为我们传入的参数值**。如果没有传入值，这个期约的内部值则为 `undefined`。然而，**如果传入的参数本身就是一个 `Promise`，那 `Promise.resolve()` 的行为类似于一个空包装，返回传入的 `Promise` 自身**。因此，该方法是一个幂等方法。
 
 **注意**：如果传入的参数本身就是一个 `Promise` 实例，`Promise.resolve()` 也不会改变它的状态，它之前是什么状态，调用后返回的值也是什么状态。因为此时的 `Promise.resolve()` 的行为类似于一个空包装，不会产生作用。
 
@@ -78,10 +78,14 @@ let p2 = Promise.resolve('success');
 let p1 = Promise.resolve(1);
 console.log(p1 === Promise.resolve(p1)); // true
 
-let p2 = new Promise((resolve, reject) => {})
+let p2 = new Promise((resolve, reject) => {});
+
+let p3 = Promise.reject('error');
 
 console.log(p2); // Promise {<pending>}
 console.log(Promise.resolve(p2)); // Promise {<pending>}
+console.log(p3); // Promise {<rejected>: 'error'}
+console.log(Promise.resolve(p3)); // Promise {<rejected>: 'error'}
 ```
 
 ### Promise.reject()
