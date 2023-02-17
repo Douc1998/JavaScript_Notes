@@ -1,12 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test</title>
+    <style>
+        .back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 1200px;
+            width: 1500px;
+            background-color: aqua;
+        }
+    </style>
 </head>
+
 <body>
+    <div class="back" id="myDiv">
+        <button onclick="myClick()">start</button>
+        <br>
+        <button onclick="myClose()">end</button>
+        <br>
+        <table border="1">
+            <tbody>
+                <tr>
+                    <td style="width: 100px">Cell 1, 1</td>
+                    <td style="width: 100px">Cell 1, 2</td>
+                </tr>
+                <tr>
+                    <td style="width: 100px">Cell 2, 1</td>
+                    <td style="width: 100px">Cell 2, 2</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     <script src="./test.js"></script>
+    <script>
+        function myClick() {
+            history.forward();
+        }
+        function myClose(){
+            history.back();
+            
+        }
+    </script>
 </body>
+
 </html>
