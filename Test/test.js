@@ -36,13 +36,23 @@
 //     console.log('keyup:' + e.key)
 // })
 
-let abortController = new AbortController();
 
-fetch('./wikipedia.zip', {
-    signal: abortController.signal
-}).catch((e) => console.log(e));
 
-// 10ms 后中断请求
-setTimeout(() => abortController.abort(), 10);
+/**@type {HTMLCanvasElement} */
+let drawing = document.querySelector('#draw');
+let ctx = drawing.getContext("2d");
+let image = new Image(100, 100);
 
-// 已经中断
+image.onload = drawImageActualSize; // 浏览器会异步加载图片，只有加载完之后才能绘制到 canvas 上，否则无效
+image.src = './myData/img.jpg';
+function drawImageActualSize() {
+  // To use the custom size we'll have to specify the scale parameters
+  // using the element's width and height properties - lets draw one
+  // on top in the corner:
+  ctx.drawImage(this, 0, 0, this.width, this.height);
+// 
+}
+
+fetch('http://www.liulongbin.top:3006/api/getbooks')
+  .then(response => response.text())
+  .then(data => console.log(data)); // string 字符串
