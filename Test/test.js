@@ -53,6 +53,4 @@ function drawImageActualSize() {
 // 
 }
 
-fetch('http://www.liulongbin.top:3006/api/getbooks')
-  .then(response => response.text())
-  .then(data => console.log(data)); // string 字符串
+window.scroll(0, 1000)
