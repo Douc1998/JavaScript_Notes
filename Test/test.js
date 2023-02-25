@@ -53,4 +53,6 @@ function drawImageActualSize() {
 // 
 }
 
-window.scroll(0, 1000)
+if(history.length === 1){
+  // 这是用户窗口中的第一个页面
+}
