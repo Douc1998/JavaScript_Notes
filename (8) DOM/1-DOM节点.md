@@ -33,7 +33,7 @@ let len = someNode.childNodes.length; // 长度
 + **`getElementById()`**：通过 `id` 属性获取。如果存在多个相同 `id` 属性的元素，则会返回在文档中出现的**第一个**。
 + **`getElementByTagName()`**：通过**标签名称**（如 `div`, `p` 等等）获取。返回一个 **`NodeList` 列表**。
 + **`getElementByName()`**：通过 `name` 属性获取。返回具有给定 `name` 属性的**所有元素**，也是 **`NodeList` 列表**。
-+ **`getElementByClassName()`**：通过 `class` 属性获取。返回具有给定 `class` 属性的**所有元素**，也是 **`NodeList` 列表**。
++ **`getElementByClassName()`**：通过 `class` 属性获取。返回**包含** `class` 属性的**所有元素**，也是 **`NodeList` 列表**。
 
 ## 4. 元素属性
 `HTML` 元素有一系列标准属性，如下：

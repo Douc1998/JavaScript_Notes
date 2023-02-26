@@ -53,10 +53,13 @@ function drawImageActualSize() {
 // 
 }
 
-// 取得所有 div 元素
-let myDiv = document.querySelector('div');
-// 取得类名（class）包含 'selected' 的所有元素
-let selecteds = document.querySelectorAll('.selected');
+
+// 获取祖先节点 div 
+let div = document.querySelector('#myDiv');
+// 获取子节点 canvas
+let canvas = document.querySelector('#draw');
+console.log(div.contains(canvas));  // true
+
 
 
 
