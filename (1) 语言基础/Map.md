@@ -30,7 +30,7 @@ m.set('user1', 'douchen');
 console.log(m); // Map(1) { 'user1' => 'douchen' }
 ```
 ### has()
-如果要查询Map中是否存在某个**键**，可以通过 **has()**方法，传入 **键名** ，返回 **bool值**。如：
+如果要查询Map中是否存在某个**键**，可以通过 **has()** 方法，传入 **键名** ，返回 **bool值**。如：
 ```JavaScript
 console.log(m.has('user1')); // true
 console.log(m.has('user2')); // false
@@ -41,7 +41,7 @@ console.log(m.has('user2')); // false
 console.log(m.get('user1')); // douchen
 console.log(m.get('user2')); // undefined
 ```
-### delete()和clear()
+### delete() 和 clear()
 **delete()** 可以删除Map中的某个键值对； **clear()** 可以清空Map()中的所有内容。  
 ## 顺序与迭代
 与Object类型的一个主要差异是，Map会维护键值对的插入顺序。因此，在Map中可以根据插入顺序进行迭代。
