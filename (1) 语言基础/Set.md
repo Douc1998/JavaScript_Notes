@@ -117,7 +117,7 @@ function intersection(a, ...bSets) {
 function difference(a, b) {
   const differenceSet = new Set(a);
   for (let bValue of b) {
-    if (!a.has(bValue)) {
+    if (a.has(bValue)) {
       differenceSet.delete(bValue)
     }
   }
@@ -126,7 +126,7 @@ function difference(a, b) {
 
 console.log(union(a, b))  // Set(5) { 1, 2, 3, 4, 5 }
 console.log(intersection(a, b)) // Set(1) { 2 }
-console.log(difference(a, b))  // Set(3) { 1, 2, 3 }
+console.log(difference(a, b))  // Set(3) { 1, 3 }
 ```
 
 ## 4. 集合与数组
