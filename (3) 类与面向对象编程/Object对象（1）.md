@@ -76,7 +76,7 @@ Object.defineProperty(person, 'sex', {
     value: 'boy', // 属性值
 });
 // 定义多个属性，Object.defineProperties
-Object.defineProperty(person, {
+Object.defineProperties(person, {
     attr1: {
         value: 1,
     },
@@ -141,7 +141,3 @@ console.log(descriptor);
 }
  */
 ```
-
-
-
-
