@@ -19,7 +19,15 @@
 </head>
 
 <body>
-    <div class="back" id="myDiv">
+    <button id='myButton'>点击我</button>
+    <script>
+let btn = document.getElementById('myButton');
+btn.onclick = function(event){
+    console.log(event.currentTarget === this); // true
+    console.log(event.target === this); // true
+}
+            </script>
+    <!-- <div class="back" id="myDiv">
         <button id='button1' onclick="myClick()">start</button>
         <br>
         <button onclick="myClose()">end</button>
@@ -36,7 +44,7 @@
             history.back();
             
         }
-    </script>
+    </script> -->
 </body>
 
 </html>
