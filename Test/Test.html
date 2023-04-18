@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test</title>
     <style>
+        body{
+            height: 10000px;
+        }
         .back {
             position: absolute;
             top: 0;
@@ -22,10 +25,10 @@
     <button id='myButton'>点击我</button>
     <script>
 let btn = document.getElementById('myButton');
-btn.onclick = function(event){
-    console.log(event.currentTarget === this); // true
-    console.log(event.target === this); // true
+btn.onkeydown = function(event){
+    console.log(event); // true
 }
+
             </script>
     <!-- <div class="back" id="myDiv">
         <button id='button1' onclick="myClick()">start</button>
