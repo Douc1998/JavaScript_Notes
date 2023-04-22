@@ -135,6 +135,59 @@ let jsonObj = JSON.stringify(obj, null, 4);
 }
 */
 ```
+
+#### 注意
+> JSON.stringify 只会转换**待转换对象自身**，不会转换该对象原型链上的属性。
+
+```js
+let obj = {
+    name: 'dou',
+    age: 24
+}
+
+// 原型属性
+obj.__proto__.job = 'student';
+
+console.log(JSON.stringify(obj)); // {"name":"dou","age":24} 
+```
+> undefined、任意的函数以及 symbol 值，出现**在非数组对象的属性值中时**在序列化过程中会被忽略。
+
+```js
+let obj = {
+    name: 'dou',
+    age: 24,
+    job: undefined,
+    sayName: () => {
+        console.log(this.name);
+    },
+    id: Symbol('dou')
+}
+
+console.log(JSON.stringify(obj)); // {"name":"dou","age":24} job、sayName, id 被忽略
+```
+> undefined、任意的函数以及 symbol 值**出现在数组中时**会被转换成 null。
+
+```js
+let obj = {
+    name: 'dou',
+    age: 24,
+    friends: [undefined, function(){console.log('hello')}, Symbol()]
+}
+
+console.log(JSON.stringify(obj)); // {"name":"dou","age":24,"friends":[null,null,null]} 
+```
+> undefined、任意的函数以及 symbol 值**被单独转换时**，会返回 undefined
+
+```js
+let test1 = Symbol();
+let test2 = undefined;
+let test3 = function(){
+    console.log('hello');
+}
+
+console.log(JSON.stringify(test1), JSON.stringify(test2), JSON.stringify(test3)); // undefined undefined undefined
+```
+
 #### toJSON() 方法
 有时候，对象需要在 `JSON.stringify()` 之上自定义 `JSON` 序列化。因此，我们可以对待序列化的对象添加 `toJSON()` 方法，序列化时会基于这个方法返回适当的 `JSON` 表示。
 
