@@ -5,36 +5,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test</title>
+    <title>requestAnimationFrame</title>
     <style>
-        body {
-            height: 10000px;
-        }
-
-        .back {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 1200px;
-            width: 1500px;
-            background-color: white;
+        #myDiv {
+            height: 100px;
+            width: 0px;
+            background-color: brown;
         }
     </style>
 </head>
 
 <body>
-    <!-- <img id="myImg" src="./myData/img.jpg"/> -->
-    <canvas id='drawing' width="200" height="200"></canvas>
+    <div id="myDiv"></div>
+    <button onclick="start()">start</button>
+    <button onclick="stop()">stop</button>
     <script>
-        let drawing = document.querySelector('#drawing');
-        let context = drawing.getContext('2d')
-        let gradient = context.createLinearGradient(30, 30, 70, 70);
-        gradient.addColorStop(0, 'green');
-        gradient.addColorStop(1, 'red');
-        context.fillStyle = gradient;
-        context.fillRect(30, 30, 40, 40);
+        let frameID;
+        let myDiv = document.querySelector("#myDiv");
+        // 开始动画
+        function start() {
+            function test(time) {
+                myDiv.style.width = `${time / 1000}%`;
+                frameID = requestAnimationFrame(test);
+            }
+            frameID = requestAnimationFrame(test);
+        }
+        // 取消动画
+        function stop() {
+            cancelAnimationFrame(frameID);
+        }
     </script>
-
 </body>
 
 </html>
