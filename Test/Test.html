@@ -7,34 +7,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>requestAnimationFrame</title>
     <style>
-        #myDiv {
-            height: 100px;
-            width: 0px;
-            background-color: brown;
+
+.myDiv {
+    width: 200px;
+    padding: 10px 10px;
+    display: flex;
+    justify-content:space-between;
+}
+/* 关键代码：给 myDiv 增加 focus-within 伪类选择器即可 */
+.myDiv:focus-within{
+    background-color: rgb(196, 235, 250);
+}
+input{
+    width: 100px;
+}
+
+        span:has(+input[must])::after{
+            content: '*';
+            color: red;
         }
+        
     </style>
 </head>
 
 <body>
-    <div id="myDiv"></div>
-    <button onclick="start()">start</button>
-    <button onclick="stop()">stop</button>
+<div class="myDiv">
+    <span>name</span>
+    <input />
+</div>
+    <div class="myDiv">
+        <span>age</span>
+        <input />
+    </div>
+    <div class="myDiv">
+        <span>gender</span>
+        <input must/>
+    </div>
+    <div class="myDiv">
+        <span>job</span>
+        <input />
+    </div>
     <script>
-        let frameID;
-        let myDiv = document.querySelector("#myDiv");
-        // 开始动画
-        function start() {
-            function test(time) {
-                myDiv.style.width = `${time / 1000}%`;
-                frameID = requestAnimationFrame(test);
-            }
-            frameID = requestAnimationFrame(test);
-        }
-        // 取消动画
-        function stop() {
-            cancelAnimationFrame(frameID);
-        }
+        function move() {}
     </script>
+
+
 </body>
 
 </html>
